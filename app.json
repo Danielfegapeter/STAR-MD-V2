@@ -16,7 +16,7 @@
     "SESSION_ID": {
       "description": "your session id",
       "required": true,
-      "value": ""
+      "value": "Xlicon_bbc71851-7f6d-467e-9c77-8c76f67fd6fe"
     },
     "MODE": {
       "description": "mode public or private",
