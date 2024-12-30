@@ -11,7 +11,7 @@ import {
    import moment from "moment-timezone"
    import os from "os"
 
-
+  
    let groupmenu = `
    ✦ ───『 *group* 』─── ⚝
   ➫ .getbio <@tag/reply>  Ⓛ
@@ -42,7 +42,7 @@ import {
   ➫ .warns
   ➫ .main
   ╰──────────⳹`
-
+  
   let ownermenu = `
   ✦ ───『 *owner* 』─── ⚝
   ◈ .addprem <@tag>
@@ -74,7 +74,7 @@ import {
   ◈ .listban
   ◈ .deleteplugin <name>
   ╰──────────⳹`
-
+  
   let funmenu = `
   ✦ ───『 *fun* 』─── ⚝
   ◈ .afk <reason>
@@ -96,7 +96,7 @@ import {
   ◈ .meme
   ◈ .quote
   ╰──────────⳹`
-
+  
   let reactmenu = `
   ✦ ───『 *reaction* 』─── ⚝
   ◈ .bully @tag
@@ -126,7 +126,7 @@ import {
   ◈ .dance @tag
   ◈ .cringe @tag
   ╰──────────⳹`
-
+  
   let dlmenu = `
   ✦ ───『 *downloader* 』─── ⚝
   ◈ .facebook <url>
@@ -149,7 +149,7 @@ import {
   ◈ .ytmp4 <yt-link>
   ◈ .wallpaper <query>
   ╰──────────⳹`
-
+  
   let gamemenu = `
   ✦ ───『 *game* 』─── ⚝
   ◈ .slot <amount>
@@ -189,7 +189,7 @@ import {
   ◈ .lolicon
   ◈ .ytcomment <comment>
   ╰──────────⳹`
-
+  
   let stickermenu = `
   ✦ ───『 *sticker* 』─── ⚝
   ◈ .emojimix <emoji+emoji>
@@ -212,7 +212,7 @@ import {
   ◈ .attp3
   ◈ .take <name>|<author>
   ╰──────────⳹`
-
+  
   let audiomenu = `
   ✦ ───『 *audio* 』─── ⚝
   ◈ .bass [vn]
@@ -228,8 +228,8 @@ import {
   ◈ .smooth [vn]
   ◈ .tupai [vn]
   ╰──────────⳹`
-
-
+  
+  
   let newsmenu = `
   ✦ ───『 *news* 』─── ⚝
   ◈ .news
@@ -387,7 +387,7 @@ import {
   ◈ .xvid
   ◈ .xnxx
   ╰──────────⳹`
-
+  
   let toolsmenu = `
   ✦ ───『 *tools* 』─── ⚝
   ◈ .nowa
@@ -427,7 +427,7 @@ import {
   ◈ .wa
   ◈ .wikipedia
   ╰──────────⳹`
-
+  
   let Aimenu = `
   ✦ ───『 *AI* 』─── ⚝
   ◈ .bing
@@ -446,7 +446,7 @@ import {
   ◈ .plugins
   ◈ .install <Gist URL>
   ╰──────────⳹`
-
+  
   let botmenu = `
   ✦ ───『 *Bot Menu* 』─── ⚝
   ◈ .ping
@@ -484,13 +484,13 @@ import {
     args,
     usedPrefix
   }) => {
-
-
+    
+  
    let glb = global.db.data.users
    let usrs = glb[m.sender]
    let tag = `@${m.sender.split("@")[0]}`
    let mode = global.opts["self"] ? "Private" : "Public"
-
+   
    let {
   age,
   exp,
@@ -509,10 +509,10 @@ import {
    let premium = glb[m.sender].premiumTime
    let prems = `${premium > 0 ? "Premium": "Free"}`
    let platform = os.platform()
-
-
+  
+  
    let ucpn = `${ucapan()}`
-
+  
    let _uptime = process.uptime() * 1000
    let _muptime
    if (process.send) {
@@ -524,17 +524,17 @@ import {
    }
    let muptime = clockString(_muptime)
    let uptime = clockString(_uptime)
-
-
+  
+   
    let totalfeatures = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
    let totalreg = Object.keys(glb).length
-
+  
     conn.gurumenu = conn.gurumenu ? conn.gurumenu : {};
-
-
+    
+   
     global.fcontact = { key: { fromMe: false, participant: `0@s.whatsapp.net`, remoteJid: 'status@broadcast' }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
     const infoText = `
-  「STAR-MD-V2 」\n
+  「 ${botname} 🎁XMD 」\n
   ┌─❖
   │ *_Hi_* 👋 
   └┬❖ *_${name}_* Senpai
@@ -545,7 +545,7 @@ import {
   │𝐁𝐎𝐓 : ${botname}
   │𝐌𝐨𝐝𝐞 : ${mode}
   │𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦 : ${platform}
-  │𝐇𝐨𝐬𝐭 : 𝔏𝔦𝔫𝔲𝔵 𝚕𝚊𝚒𝚛
+  │𝐇𝐨𝐬𝐭 : Kali linux
   │𝐓𝐲𝐩𝐞 : NodeJs
   │𝐁𝐚𝐢𝐥𝐞𝐲𝐬 : Multi Device
   │𝐏𝐫𝐞𝐟𝐢𝐱 : [ *${usedPrefix}* ]
@@ -559,7 +559,7 @@ import {
   │𝐑𝐨𝐥𝐞 : ${role}
   │𝐋𝐞𝐯𝐞𝐥 : ${level}
   │𝐗𝐩 : ${exp}
-  │𝘋𝘦𝘷𝘦𝘭𝘰𝘱𝘦𝘳:-𝐄𝐱𝐜𝐞𝐥
+  │
   └─ 𝞘𝞜𝙁𝞗 𝘾𝞛𝘿
   │ *${totalfeatures}* Commands
   │
@@ -592,10 +592,10 @@ import {
  ${readMore}` 
 ;
 
-
+  
   const { result, key, timeout } = await conn.sendMessage(m.chat, { video: { url: menuvid }, caption: infoText.trim(),  gifPlayback: true,
   gifAttribution: 0}, { quoted: fcontact })
-
+  
   // Save the menu options to gurumenu
   conn.gurumenu[m.sender] = {
     result,
@@ -608,117 +608,117 @@ import {
   }, 60 * 1000),
   };
   };
-
-
+  
+ 
   handler.before = async (m, { conn }) => {
     conn.gurumenu = conn.gurumenu ? conn.gurumenu : {};
     if (m.isBaileys || !(m.sender in conn.gurumenu)) return;
     const { result, key, timeout } = conn.gurumenu[m.sender];
     if (!m.quoted || m.quoted.id !== key.id || !m.text) return;
     const choice = m.text.trim();
-
+    
     if (choice === "1") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/LIuTHZK.jpeg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: botmenu
       }, { quoted:fcontact });
       } else if (choice === "2") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: ownermenu
       }, { quoted:fcontact });
       } else if (choice === "3") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: groupmenu
       }, { quoted:fcontact });
       } else if (choice === "4") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: funmenu
       }, { quoted:fcontact });
       } else if (choice === "5") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: reactmenu
       }, { quoted:fcontact });
       } else if (choice === "6") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: dlmenu
       }, { quoted:fcontact });
       } else if (choice === "7") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: groupmenu
       }, { quoted:fcontact });
       } else if (choice === "8") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: logomenu
       }, { quoted:fcontact });
       } else if (choice === "9") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: stickermenu
       }, { quoted:fcontact });
       } else if (choice === "10") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: audiomenu
       }, { quoted:fcontact });
       } else if (choice === "11") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: newsmenu
       }, { quoted:fcontact });
       } else if (choice === "12") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: economy
       }, { quoted:fcontact });
       } else if (choice === "13") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: animemenu
       }, { quoted:fcontact });
       } else if (choice === "14") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: nsfwmenu
       }, { quoted:fcontact });
       } else if (choice === "15") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: toolsmenu
       }, { quoted:fcontact });
       } else if (choice === "16") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: Aimenu
       }, { quoted:fcontact });
       } else if (choice === "17") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: religionmenu
       }, { quoted:fcontact });
       } else if (choice === "18") {
-        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg' },
+        await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/74b32f0d7c0571b2bf5bb.jpg' },
         caption: pluginmenu
       }, { quoted:fcontact });
       } else {
         m.reply('Invalid choice. Please reply with a valid number.');
       }
-
+  
   };
-
-
+  
+  
   handler.help = ["play"];
   handler.tags = ["downloader"];
   handler.command = /^(menu4)$/i;
   handler.limit = true;
   export default handler;
-
-
-
-
+  
+  
+  
+  
   function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)]
    }
-
+   
    const more = String.fromCharCode(8206)
    const readMore = more.repeat(4001)
-
+   
    function clockString(ms) {
     let h = isNaN(ms) ? "--" : Math.floor(ms / 3600000)
     let m = isNaN(ms) ? "--" : Math.floor(ms / 60000) % 60
     let s = isNaN(ms) ? "--" : Math.floor(ms / 1000) % 60
     return [h, " H ", m, " M ", s, " S "].map(v => v.toString().padStart(2, 0)).join("")
    }
-
+   
    function clockStringP(ms) {
     let ye = isNaN(ms) ? "--" : Math.floor(ms / 31104000000) % 10
     let mo = isNaN(ms) ? "--" : Math.floor(ms / 2592000000) % 12
@@ -728,7 +728,7 @@ import {
     let s = isNaN(ms) ? "--" : Math.floor(ms / 1000) % 60
     return [ye, " *Years 🗓️*\n", mo, " *Month 🌙*\n", d, " *Days ☀️*\n", h, " *Hours 🕐*\n", m, " *Minute ⏰*\n", s, " *Second ⏱️*"].map(v => v.toString().padStart(2, 0)).join("")
    }
-
+   
    function ucapan() {
     const time = moment.tz("Asia/Kolkata").format("HH")
     let res = "Good morning ☀️"
@@ -746,3 +746,4 @@ import {
     }
     return res
    }
+  

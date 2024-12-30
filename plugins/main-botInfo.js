@@ -42,29 +42,28 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let speed = neww - old
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
-let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './STAR.jpg')
+let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './XLICON.jpg')
 let user = global.db.data.users[who]
   
 let infobt = `
-🌠 *ᏆΝҒϴ:-ՏͲᎪᎡ-ᎷᎠ-Ꮩ2* 🌠
+⭐ *INFO XLICON-V2 BOT* ⭐
 
-╭───•••✧ᎠᎬᏙᎬᏞϴᏢᎬᎡ✧••••───╮
-┃ *≡*. 
-│ ➫「 *ՏͲᎪᎡ-ᎷᎠ-Ꮩ2* 」
-│ ➫ *Name    :* Excel
-│ ➫ *Place   :* Nigeria
+  ╭───•✧✧•───╮
+  *≡*. 
+│ ➫「 *Developer* 」
+│ ➫ *Name    :* Salman Ahmad & Abraham Dwamena
+│ ➫ *Place   :* Pakistan & Ghana
 │ ➫ *Gender  :*  ᴍᴀʟᴇ
-│➫ *Age     :* _15
-│ ➫ *Phone   :* wa.me/2347045035241
-│ ➫ *TT      :*  https://tiktok.com
-/@xcelsama
-│ ➫ *GitHub  :* https://github.com/Xcelsama
-│ ➫ *TT *:- https://tiktok.com/@xcelsama
-│ ➫ *Channel* :https://whatsapp.com/
-channel/0029Va9wmuz8F2pGIURwmo0m
-│ ➫ *Status  :* ᎠᎬᏴႮᏀᏀᏆΝᏀ ᏟϴᎠᎬ._
-┃ 
-┃© STAR-MD-V2 BY EXCEL
+│ ➫ *Age     :* _18_ and _19_
+│ ➫ *Phone   :* wa.me/923184070915 & wa.me/+233533763772
+│ ➫ *YouTube :* youtube.com/@s4salmanyt 
+│ ➫ *GitHub  :* github.com/salmanytofficial
+│ ➫ *IG ID   :* instagram.com/ahmmikun
+│ ➫ *Channel* :https://whatsapp.com/channel/0029VaE8GbCDzgTILE7OtC3e
+│ ➫ *Status  :* Debugging
+ Code._
+© XLICON-V2 BY Salman Ahmad and AB-Dev
+
 ⚡ *STATE* ⚡
 ➫ *${groupsIn.length}* GROUP CHATS
 ➫  *${groupsIn.length}* united groups
@@ -73,7 +72,7 @@ channel/0029Va9wmuz8F2pGIURwmo0m
 ➫  *${chats.length}* Total Chats
 
 
- *🕣 ＳＴＡＲ-ＳＥＲＶＥＲ*
+ *🕣 S E R V E R*
 *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
 *🔵 FreeRAM:* ${format(freemem())}
 

@@ -1,36 +1,54 @@
-import { tiktokdl } from '@bochilteam/scraper';
-import fg from 'api-dylux';
+import 'api-dylux';
+import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
+  if (!args[0]) {
+    throw `✳️ Give the link of the video TikTok or quote a TikTok link\n\n 📌 Example: ${usedPrefix + command} https://vm.tiktok.com`;
+  }
+  if (!args[0].match(/tiktok/gi)) {
+    throw "❎ Please provide a valid TikTok Link";
+  }
 
- if (!args[0] && m.quoted && m.quoted.text) {
-  args[0] = m.quoted.text;
-}
-if (!args[0] && !m.quoted) throw `Give the link of the video Tiktok or quote a tiktok link`;
- if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`;
-
-
-  let txt = '*STAR-TT-DOWNLOADER*';
-
+  m.react(rwait);
+  
   try {
-    const { author: { nickname }, video, description } = await tiktokdl(args[0]);
-    const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd;
-
-    if (!url) throw global.error;
-
-    conn.sendFile(m.chat, url, 'tiktok.mp4', '', m);
-  } catch (err) {
-    try {
-      let p = await fg.tiktok(args[0]);
-      conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m);
-    } catch {
-      m.reply('*An unexpected error occurred*');
+    let response = await fetch(global.API("fgmods", '/api/downloader/tiktok', { 'url': args[0] }, "apikey"));
+    let result = await response.json();
+    
+    if (!result.result.images) {
+      let message = `
+┌─⊷ *𝗦𝗧𝗔𝗥 𝗧𝗜𝗞𝗧𝗢𝗞 𝗗𝗟* 
+┃ *Name:* ${result.result.author.nickname}
+┃ *Username:* ${result.result.author.unique_id}
+┃ *Duration:* ${result.result.duration}
+┃ *Likes:* ${result.result.digg_count}
+┃ *Views:* ${result.result.play_count}
+┃ *Description:* ${result.result.title}
+└───────────
+      `;
+      await conn.sendFile(m.chat, result.result.play, "tiktok.mp4", message, m);
+      m.react(done);
+    } else {
+      let message = `
+┌─⊷ *XLICON 𝗧𝗜𝗞𝗧𝗢𝗞 𝗗𝗟*           
+┃ *Likes:* ${result.result.digg_count}
+┃ *Description:* ${result.result.title}
+└───────────
+      `;
+      for (let image of result.result.images) {
+        await conn.sendMessage(m.chat, { image: { url: image }, caption: message }, { quoted: m });
+      }
+      await conn.sendFile(m.chat, result.result.play, "tiktok.mp3", '', m, null, { mimetype: "audio/mp4" });
+      m.react(done);
     }
+  } catch (error) {
+    console.error(error);
+    m.reply("❎ Error");
   }
 };
 
-handler.help = ['tiktok'].map((v) => v + ' <url>');
-handler.tags = ['downloader'];
-handler.command = /^t(t|iktok(d(own(load(er)?)?|l))?|td(own(load(er)?)?|l))$/i;
+handler.help = ["tiktok"];
+handler.tags = ['dl'];
+handler.command = ["tiktok", 'tt', "tiktokimg", 'tk'];
 
 export default handler;

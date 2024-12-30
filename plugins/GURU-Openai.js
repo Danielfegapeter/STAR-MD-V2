@@ -12,21 +12,21 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
   try {
     m.react(rwait)
     const { key } = await conn.sendMessage(m.chat, {
-      image: { url: 'https://i.imgur.com/e0iJXPA.jpeg' },
-      caption: 'sᴛᴀʀ-ᴍᴅ-ᴀɪ ɪs ᴛʜɪɴᴋɪɴɢ....'
+      image: { url: 'https://telegra.ph/file/403a47e628ef49dee27a3.jpg' },
+      caption: 'Thinking....'
     }, {quoted: m})
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
     const guru1 = `${gurubot}/chatgpt?text=${prompt}`;
-
+    
     try {
       let response = await fetch(guru1);
       let data = await response.json();
       let result = data.result;
 
       if (!result) {
-
+        
         throw new Error('No valid JSON response from the first API');
       }
 
@@ -43,12 +43,12 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     } catch (error) {
       console.error('Error from the first API:', error);
 
-
+  
       const model = 'llama';
       const senderNumber = m.sender.replace(/[^0-9]/g, ''); 
       const session = `GURU_BOT_${senderNumber}`;
       const guru2 = `https://ultimetron.guruapi.tech/gpt3?prompt=${prompt}`;
-
+      
       let response = await fetch(guru2);
       let data = await response.json();
       let result = data.completion;

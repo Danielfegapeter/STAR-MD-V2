@@ -1,17 +1,16 @@
 {
-  "name": "STAR-MD-V2",
-  "description": "A whatsapp bot with rich functions created by Excel",
-    "logo": "https://telegra.ph/file/f2fa9732e0e26bbb0bfb0.jpg",
+  "name": "whatsapp-bot (X-BOT)",
+  "description": " Whatsapp bot.",
   "keywords": [
-    "STAR-MD-V2"
+    "whatsapp bot"
   ],
-  "repository": "https://github.com/Xcelsama/STAR-MD-V2/main",
+  "repository": "https://github.com/salmanytofficial/XLICON-V2-MD/main",
   "stack": "container",
   "env": {
     "DATABASE_URL": {
       "description": "your mongodb database url",
       "required": false,
-      "value": "mongodb+srv://xcelsama:derby@xcelsama.cyxyblt.mongodb.net/?retryWrites=true&w=majority&appName=Xcelsama"
+      "value": ""
     },
     "SESSION_ID": {
       "description": "your session id",
@@ -26,12 +25,12 @@
     "PREFIX": {
       "description": "put any one symbol here except @ and + , leave it Blank if you want to use multiple prefix",
       "required": false,
-      "value": "*"
+      "value": ""
     },
      "HKEY": {
       "description": "Put your Heroku api key Here , Get one from here https://dashboard.heroku.com/account",
       "required": true,
-      "value": "8cf895b5-dbdf-4d5d-b2a1-b31319db8aa6"
+      "value": ""
     },
      "HAPP": {
       "description": "Put the Heroku app name, same as above entered",
@@ -41,12 +40,12 @@
     "statusview": {
       "description": "make it true if you want bot to view status",
       "required": false,
-      "value": "true"
+      "value": ""
     },
     "autoRead": {
       "description": "make it true if you want bot to read messages",
       "required": false,
-      "value": "false"
+      "value": ""
     },
     "antidelete": {
       "description": "bot will forward deleted messages if you make it true",
@@ -56,7 +55,7 @@
      "REMOVEBG_KEY": {
       "description": "your RemoveBg api key",
       "required": false,
-      "value": "dKK5KVz3KdVDd3HZfSV8xbHv"
+      "value": ""
     }
     },
     "buildpacks": [
@@ -71,6 +70,6 @@
     },
     {
       "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
-          }
+    }
   ]
 }

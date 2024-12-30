@@ -10,12 +10,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
   const msg = encodeURIComponent(text);
   
-  const res = await fetch(`https://ultimetron.guruapi.tech/rekha?prompt=${msg}`);
-  
+  const res = await fetch(`https://ultimetron.guruapi.tech/gpt3?prompt=${msg}`);
+
   const json = await res.json();
   
   
-  let reply = json.result.response;
+    let reply = json.completion;
     m.reply(reply);
 
 };

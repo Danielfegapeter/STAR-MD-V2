@@ -19,7 +19,7 @@ const handler = async (m, {
     conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {};
     await conn.reply(m.chat, wait, m);
     const result = await searchAndDownloadMusic(text);
-    const infoText = `🔰──『 *ՏͲᎪᎡ-ᎷᎠ-Ꮩ2 PLAYᎬR* 』── 🔰`;
+    const infoText = `🔰──『 *XLICON-V2 PLAYER* 』── 🔰`;
 
 const orderedLinks = result.allLinks.map((link, index) => {
     const sectionNumber = index + 1;
@@ -100,7 +100,7 @@ handler.before = async (m, {
     }
 };
 
-handler.help = ["play3"];
+handler.help = ["play"3];
 handler.tags = ["downloader"];
 handler.command = /^(play3)$/i;
 handler.limit = true;
